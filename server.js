@@ -18,6 +18,9 @@ var messages = [{message: "Cześć", from: 'burak'},
                 {message: "2341234", from: 'burak'}];
 
 app.use(express.static(path.join(__dirname, "public")));
+app.get('/*', function(req, res){
+    res.sendFile(__dirname + '/public/index.html');
+});
 
 io.on('connection', function(socket) {
   console.log('New connection made');
